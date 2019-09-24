@@ -2,6 +2,8 @@ Vue.config.devtools = true;
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'Socks'
+        product: 'Socks',
+        image: './vmSocks-green.jpg',
+        inStock: true
     }
 });
