@@ -7,17 +7,14 @@
       <h5>Category: {{ event.category }}</h5>
     </div>
 
-    <BaseIcon name="map">
-      <h2>Location</h2>
-    </BaseIcon>
+    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
 
     <address>{{ event.location }}</address>
 
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
 
-    <h2>
-      Attendees
+    <h2>Attendees
       <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
     </h2>
     <ul class="list-group">
@@ -29,6 +26,7 @@
 </template>
 <script>
 import EventService from '@/services/EventService.js'
+
 export default {
   props: ['id'],
   data() {
