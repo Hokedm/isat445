@@ -7,17 +7,14 @@
       <h5>Category: {{ event.category }}</h5>
     </div>
 
-    <BaseIcon name="map">
-      <h2>Location</h2>
-    </BaseIcon>
+    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
 
     <address>{{ event.location }}</address>
 
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
 
-    <h2>
-      Attendees
+    <h2>Attendees
       <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
     </h2>
     <ul class="list-group">
@@ -28,14 +25,17 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
   created() {
-    this.$store.dispatch('fetchEvent', this.id)
+    this.fetchEvent(this.id)
   },
-  computed: mapState(['event'])
+  computed: mapState({
+    event: state => state.event.event
+  }),
+  methods: mapActions('event', ['fetchEvent'])
 }
 </script>
 <style scoped>
